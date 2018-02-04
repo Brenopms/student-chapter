@@ -1,5 +1,4 @@
 p {
-    font-family: 'Karma', 'Times New Roman';
     font-size: 1.2em;
     line-height: 1.5;
 }
@@ -161,4 +160,8 @@ p {
 
 .ui.no.padding {
     padding: 0px;
+}
+
+.splash-logo {
+
 }
