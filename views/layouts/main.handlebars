@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Express Boilerplate</title>
+
+	<link rel="stylesheet" type="text/css" href="/semantic-ui/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+<body>
+	<div class="ui borderless main menu">
+		<div class="ui text container">
+			<a href="/" class="header item">
+				<i class="ui home icon"></i>
+				Express Boilerplate
+			</a>
+			<div class="right menu">
+				{{#if currentUser}}
+					<div class="item">Signed in as &nbsp;<b> {{currentUser.username}}</b></div>
+					<a href="/logout" class="item">Logout</a>
+				{{else}}
+					<a href="/login" class="item">Login</a>
+					<a href="/register" class="item">Sign Up</a>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+
+	{{{body}}}
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="/semantic-ui/semantic.min.js"></script>
+	<script type="text/javascript">
+		// fix main menu to page on passing
+		$('.main.menu').visibility({
+			type: 'fixed'
+		});
+	</script>
+</body>
+</html>

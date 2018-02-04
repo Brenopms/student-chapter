@@ -1,0 +1,164 @@
+p {
+    font-family: 'Karma', 'Times New Roman';
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.main.menu {
+    margin-top: 2em !important;
+    transition: box-shadow .5s ease, padding .5s ease;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.main.menu.fixed {
+    margin-top: 0 !important;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+}
+
+.masthead {
+    margin-bottom: 4em;
+}
+
+.masthead h1.ui.header {
+    font-size: 4em;
+    font-weight: normal;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+.justified {
+    text-align: justify;
+}
+
+.ui.margin.full.small {
+    margin: 2em;
+}
+
+.ui.margin.full {
+    margin: 3em;
+}
+
+.ui.margin.full.big {
+    margin: 4em;
+}
+
+.ui.margin.bottom.small {
+    margin-bottom: 2em;
+}
+
+.ui.margin.bottom {
+    margin-bottom: 3em;
+}
+
+.ui.margin.bottom.big {
+    margin-bottom: 4em;
+}
+
+.ui.margin.top.small {
+    margin-top: 2em;
+}
+
+.ui.margin.top {
+    margin-top: 3em;
+}
+
+.ui.margin.top.big {
+    margin-top: 4em;
+}
+
+.ui.margin.left.small {
+    margin-left: 2em;
+}
+
+.ui.margin.left {
+    margin-left: 3em;
+}
+
+.ui.margin.left.big {
+    margin-left: 4em;
+}
+
+.ui.margin.right.small {
+    margin-right: 2em;
+}
+
+.ui.margin.right {
+    margin-right: 3em;
+}
+
+.ui.margin.right.big {
+    margin-right: 4em;
+}
+
+.ui.padding.full.small {
+    padding: 2em;
+}
+
+.ui.padding.full {
+    padding: 3em;
+}
+
+.ui.padding.full.big {
+    padding: 4em;
+}
+
+.ui.padding.bottom.small {
+    padding-bottom: 2em;
+}
+
+.ui.padding.bottom {
+    padding-bottom: 3em;
+}
+
+.ui.padding.bottom.big {
+    padding-bottom: 4em;
+}
+
+.ui.padding.top.small {
+    padding-top: 2em;
+}
+
+.ui.padding.top {
+    padding-top: 3em;
+}
+
+.ui.padding.top.big {
+    padding-top: 4em;
+}
+
+.ui.padding.left.small {
+    padding-left: 2em;
+}
+
+.ui.padding.left {
+    padding-left: 3em;
+}
+
+.ui.padding.left.big {
+    padding-left: 4em;
+}
+
+.ui.padding.right.small {
+    padding-right: 2em;
+}
+
+.ui.padding.right {
+    padding-right: 3em;
+}
+
+.ui.padding.right.big {
+    padding-right: 4em;
+}
+
+.ui.no.padding {
+    padding: 0px;
+}
