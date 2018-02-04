@@ -1,0 +1,20 @@
+<div class="ui raised no padding text segment container">
+	<img class="ui fluid rounded image" src="{{campground.image}}">
+	<div class="ui full padding">
+		<h1 class="ui header">{{campground.name}} <span class="subtext">Submmited by {{campground.author.username}}</span></h1>
+		<p class="justified">{{{campground.description}}}</p>
+		<a class="ui right floated inverted blue icon link button" href="/campgrounds/{{campground._id}}/comments/new" data-tooltip="New comment"><i class="comment icon"></i></a>
+		<div class="ui dividing huge header">Comments</div>
+		<div class="ui relaxed divided list">
+			{{#each campground.comments}}
+				<div class="item">
+					<i class="large user middle aligned icon"></i>
+					<div class="content">
+						<p class="header"> {{author.username}}</p>
+						<div class="justified description">{{text}}</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

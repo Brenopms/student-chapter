@@ -2,6 +2,7 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
 var User     = require('../models/user');
+var Course   = require('../models/course');
 
 //==============
 // INDEX ROUTES
@@ -13,7 +14,14 @@ var User     = require('../models/user');
 
 // Home Page
 router.get('/', function(req,res){
-	res.render('index');
+	Course.find({}).sort({'date': -1}).limit(3).exec(function(err, results) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.render("index", {courses: results});
+		}
+	});
 });
 
 /**
@@ -26,7 +34,7 @@ router.get('/register', function (req, res) {
 });
 
 // Sign Up Logic Handling
-router.post('/register', function (req, res) { 
+router.post('/register', function (req, res) {
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user) {
 		if (err) {

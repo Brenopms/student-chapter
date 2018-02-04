@@ -1,0 +1,29 @@
+<div class="ui center aligned container">
+	<div class="ui cards">
+		{{#each courses}}
+			<div class="ui raised centered card">
+				<div class="image">
+					<img src="{{image}}">
+				</div>
+				<div class="content">
+					<a class="header"> {{name}} </a>
+					<div class="meta">
+						<span class="date">Data: {{moment date 'DD/MM/YYYY'}}</span>
+					</div>
+					<div class="description">
+						{{#ifCond description.length '>' 100}}
+							{{substring description 0 100}}
+						{{else}}
+							{{description}}
+						{{/ifCond}}
+					</div>
+				</div>
+				<div class="extra content">
+					<a href="/courses/{{_id}}" class="ui blue fluid button">
+						Reservar
+					</a>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>

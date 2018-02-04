@@ -6,7 +6,8 @@ var mongoose         = require('mongoose');
 var methodOverride   = require('method-override');
 var passport         = require('passport');
 var LocalStrategy    = require('passport-local');
-// var seedDB        = require("./seeds");
+var i18n             = require('i18n');
+var seedDB        = require("./seeds");
 var app              = express();
 
 /**
@@ -63,7 +64,7 @@ app.use(function(req, res, next) {
 /**
  * Database Seeding
  */
-// seedDB();
+seedDB();
 
 /**
  * Routes Setup

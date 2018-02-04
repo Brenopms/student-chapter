@@ -9,6 +9,9 @@ p {
     border: none;
     border-radius: 0;
     box-shadow: none;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.5;
+    font-size: 1.14285714rem
 }
 
 .main.menu.fixed {
@@ -37,6 +40,24 @@ p {
 .justified {
     text-align: justify;
 }
+
+.homepage .ui.vertical.stripe h3 {
+    font-size: 2em;
+}
+
+.homepage .ui.vertical.stripe p {
+    font-size: 1.33em;
+}
+
+.homepage .ui.vertical.stripe {
+    padding: 8em 0em;
+}
+
+.homepage .ui.vertical {
+    border-bottom: 0px;
+}
+
+/* MARGIN AND PADDING CLASSES */
 
 .ui.margin.full.small {
     margin: 2em;
@@ -160,8 +181,4 @@ p {
 
 .ui.no.padding {
     padding: 0px;
-}
-
-.splash-logo {
-
 }

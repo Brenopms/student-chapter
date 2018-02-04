@@ -1,0 +1,24 @@
+<div class="ui container raised segment">
+	<div class="ui huge center aligned header">New Campground</div>
+	<form action="/campgrounds" class="ui form" method="POST">
+		<div class="two fields">
+			<div class="field">
+				<label for="campground[name]">Name</label>
+				<input name="campground[name]" type="text" placeholder="Name">
+			</div>
+			<div class="field">
+				<label for="campground[image]">Image</label>
+				<input name="campground[image]" type="text" placeholder="Image Url">
+			</div>
+		</div>
+		<div class="field">
+			<label for="campground[description]">Description</label>
+			<textarea name="campground[description]"></textarea>
+		</div>
+		<div class="right aligned field">
+			<div class="ui right aligned container">
+				<input type="submit" class="ui blue inverted button" value="Add Campground">
+			</div>
+		</div>
+	</form>
+</div>
