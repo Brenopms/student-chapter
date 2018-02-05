@@ -1,7 +1,7 @@
 {
-  "name": "express-boilerplate",
+  "name": "student-chapter",
   "version": "1.0.0",
-  "description": "NodeJs + Express + MongoDB project boilerplate with docker",
+  "description": "WEB Portal for the UFMG Student Chapter",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tulioliveira/express-boilerplate.git"
+    "url": "git+https://github.com/tulioliveira/student-chapter.git"
   },
   "author": "Túlio Araújo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tulioliveira/express-boilerplate/issues"
+    "url": "https://github.com/tulioliveira/student-chapter/issues"
   },
-  "homepage": "https://github.com/tulioliveira/express-boilerplate#readme",
+  "homepage": "https://github.com/tulioliveira/student-chapter#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
