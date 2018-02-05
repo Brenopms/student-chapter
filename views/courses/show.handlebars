@@ -1,20 +1,52 @@
 <div class="ui raised no padding text segment container">
-	<img class="ui fluid rounded image" src="{{campground.image}}">
+	<img class="ui fluid rounded image" src="{{course.image}}">
 	<div class="ui full padding">
-		<h1 class="ui header">{{campground.name}} <span class="subtext">Submmited by {{campground.author.username}}</span></h1>
-		<p class="justified">{{{campground.description}}}</p>
-		<a class="ui right floated inverted blue icon link button" href="/campgrounds/{{campground._id}}/comments/new" data-tooltip="New comment"><i class="comment icon"></i></a>
-		<div class="ui dividing huge header">Comments</div>
+		<h1 class="ui header">{{course.name}} <span class="subtext"><i class="calendar icon"></i>{{moment course.date 'DD/MM/YYYY, hh:mm'}}</span></h1>
+		<p class="justified">{{{course.description}}}</p>
 		<div class="ui relaxed divided list">
-			{{#each campground.comments}}
-				<div class="item">
-					<i class="large user middle aligned icon"></i>
-					<div class="content">
-						<p class="header"> {{author.username}}</p>
-						<div class="justified description">{{text}}</div>
+			<div class="item">
+				<i class="large marker middle aligned icon"></i>
+				<div class="content">
+					<div class="header">Endereço</div>
+					<div class="description">{{course.address}} </div>
+				</div>
+			</div>
+			<div class="item">
+				<i class="large hourglass half middle aligned icon"></i>
+				<div class="content">
+					<div class="header">Duração</div>
+					<div class="description">{{course.duration}} horas</div>
+				</div>
+			</div>
+			<div class="item">
+				<i class="large dollar middle aligned icon"></i>
+				<div class="content">
+					<div class="header">Preço</div>
+					<div class="description">{{formatCurrency course.price}} por pessoa </div>
+				</div>
+			</div>
+		</div>
+		<h3 class="ui horizontal header divider top margin">
+			Reserve Agora
+		</h3>
+		<form class="ui big equal width form">
+			<div class="fields">
+				<div class="field">
+					<label>Quantidade</label>
+					<div class="ui left icon input">
+						<input required type="text" placeholder="Número de Pessoas">
+						<i class="shop icon"></i>
 					</div>
 				</div>
-			{{/each}}
-		</div>
+				<div class="field">
+					<label>E-mail</label>
+					<div class="ui left icon input">
+						<input required type="email" placeholder="exemplo@gmail.com">
+						<i class="user icon"></i>
+					</div>
+				</div>
+			</div>
+			<button class="ui big blue fluid button" type="submit">Reservar</button>
+		</form>
 	</div>
 </div>

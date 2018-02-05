@@ -6,9 +6,9 @@
 					<img src="{{image}}">
 				</div>
 				<div class="content">
-					<a class="header"> {{name}} </a>
+					<a href="/courses/{{_id}}" class="header"> {{name}} </a>
 					<div class="meta">
-						<span class="date">Data: {{moment date 'DD/MM/YYYY'}}</span>
+						<span class="date"><i class="calendar icon"></i> {{moment date 'DD/MM/YYYY'}}</span>
 					</div>
 					<div class="description">
 						{{#ifCond description.length '>' 100}}

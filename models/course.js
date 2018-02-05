@@ -8,6 +8,7 @@ var CourseSchema = new mongoose.Schema({
 	date: Date,
 	price: Number,
 	address: String,
+	duration: Number,
 	created_at: {type: Date, default: Date.now()}
 });
 

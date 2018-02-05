@@ -3,15 +3,7 @@ var Course = require('./models/course');
 
 var userData = [
 	{
-		username: "example1",
-		password: "123456"
-	},
-	{
-		username: "example2",
-		password: "123456"
-	},
-	{
-		username: "example3",
+		username: "teste",
 		password: "123456"
 	}
 ];
@@ -23,6 +15,7 @@ var courseData = [
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
+		duration: 5,
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
@@ -31,6 +24,7 @@ var courseData = [
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
+		duration: 5,
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
@@ -39,6 +33,7 @@ var courseData = [
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
+		duration: 5,
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
@@ -47,6 +42,7 @@ var courseData = [
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
+		duration: 5,
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
@@ -55,6 +51,7 @@ var courseData = [
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
+		duration: 5,
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 ];
@@ -68,7 +65,7 @@ function seedDB() {
 		else {
 			console.log("Users Removed!");
 			userData.forEach(function (seed) {
-				User.create(seed, function (err, newUser) {
+				User.register(new User({username: seed.username}), seed.password, function(err, newUser) {
 					if (err) {
 						console.log(err);
 					}
@@ -85,7 +82,7 @@ function seedDB() {
 			console.log(err);
 		}
 		else {
-			console.log("Users Removed!");
+			console.log("Courses Removed!");
 			courseData.forEach(function (seed) {
 				Course.create(seed, function (err, newCourse) {
 					if (err) {

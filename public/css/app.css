@@ -1,7 +1,20 @@
+/* DEFAULT */
 p {
     font-size: 1.2em;
     line-height: 1.5;
 }
+
+.subtext {
+    float: right;
+    color: #aaa;
+    font-size: 0.6em;
+}
+
+.justified {
+    text-align: justify;
+}
+
+/* MAIN MENU */
 
 .main.menu {
     margin-top: 2em !important;
@@ -37,10 +50,6 @@ p {
     font-weight: normal;
 }
 
-.justified {
-    text-align: justify;
-}
-
 .homepage .ui.vertical.stripe h3 {
     font-size: 2em;
 }
@@ -57,7 +66,7 @@ p {
     border-bottom: 0px;
 }
 
-/* MARGIN AND PADDING CLASSES */
+/* MARGIN AND PADDING */
 
 .ui.margin.full.small {
     margin: 2em;

@@ -7,13 +7,14 @@ var methodOverride   = require('method-override');
 var passport         = require('passport');
 var LocalStrategy    = require('passport-local');
 var i18n             = require('i18n');
-var seedDB        = require("./seeds");
+var seedDB           = require("./seeds");
 var app              = express();
 
 /**
  * Routers
  */
 var indexRoutes = require('./routes/index');
+var coursesRoutes = require('./routes/courses');
 
 /**
  * Database Setup
@@ -70,6 +71,7 @@ seedDB();
  * Routes Setup
  */
 app.use("/", indexRoutes);
+app.use("/courses", coursesRoutes);
 
 app.listen(3000, function () {
 	console.log('UFMG Student Chapter App listening on port 3000!');

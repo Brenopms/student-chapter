@@ -9,6 +9,9 @@ var register = function (Handlebars) {
 		substring: function (string, min, max) {
 			return string.substring(min, max);
 		},
+		formatCurrency: function (value) {
+			return ('R$' + value.toFixed(2).toString().replace(".", ","));
+		},
 		ifCond: function (v1, operator, v2, options) {
 			switch (operator) {
 				case '==':

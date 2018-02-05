@@ -5,6 +5,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/semantic-ui/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
 <body>
 	<div class="ui borderless main menu">
@@ -13,17 +14,14 @@
 				<i class="home icon"></i>
 				UFMG Student Chapter
 			</a>
-			<a href="#contactForm" class="item"> Cursos </a>
+			<a href="/courses" class="item"> Cursos </a>
 			<a href="#contactForm" class="item"> Contato </a>
 			<div class="right menu">
-				<!-- {{#if currentUser}}
+				{{#if currentUser}}
+					<a href="/courses/admin" class="item"> Gerenciar Cursos </a>
 					<div class="item">Signed in as &nbsp;<b> {{currentUser.username}}</b></div>
 					<a href="/logout" class="item">Logout</a>
-				{{else}}
-					<a href="/login" class="item">Login</a>
-					<a href="/register" class="item">Sign Up</a>
-				{{/if}} -->
-				<a href="#contactForm" class="item"> Contact Us </a>
+				{{/if}}
 			</div>
 		</div>
 	</div>
