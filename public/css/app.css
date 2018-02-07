@@ -1,4 +1,8 @@
 /* DEFAULT */
+body {
+  min-width: 725px;
+}
+
 p {
     font-size: 1.2em;
     line-height: 1.5;
@@ -12,6 +16,10 @@ p {
 
 .justified {
     text-align: justify;
+}
+
+.animated {
+    visibility: hidden;
 }
 
 /* MAIN MENU */

@@ -37,6 +37,9 @@ var register = function (Handlebars) {
 				default:
 					return options.inverse(this);
 			}
+		},
+		multiply: function(value, multiplier, offset) {
+			return parseFloat(value)*(parseFloat(multiplier) + parseFloat(offset));
 		}
 	};
 

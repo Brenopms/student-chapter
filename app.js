@@ -7,14 +7,17 @@ var methodOverride   = require('method-override');
 var passport         = require('passport');
 var LocalStrategy    = require('passport-local');
 var i18n             = require('i18n');
+var flash            = require('connect-flash');
 var seedDB           = require("./seeds");
 var app              = express();
 
 /**
  * Routers
  */
-var indexRoutes = require('./routes/index');
+var indexRoutes   = require('./routes/index');
 var coursesRoutes = require('./routes/courses');
+var contactRoutes = require('./routes/contact');
+var adminRoutes   = require('./routes/admin');
 
 /**
  * Database Setup
@@ -31,13 +34,19 @@ mongoose.connect("mongodb://mongo:27017/project_db_name", {
  */
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main',
-	helpers: require("./public/js/helpers.js").helpers
+	helpers: require("./public/js/helpers.js").helpers,
+	partialsDir: "views/partials/"
 }));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+app.use(flash);
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+}); 
 
 /**
  * Database Models
@@ -72,6 +81,8 @@ seedDB();
  */
 app.use("/", indexRoutes);
 app.use("/courses", coursesRoutes);
+app.use("/contact", contactRoutes);
+app.use("/admin", adminRoutes);
 
 app.listen(3000, function () {
 	console.log('UFMG Student Chapter App listening on port 3000!');
