@@ -27,6 +27,10 @@ p {
     visibility: hidden;
 }
 
+.pageWrapper {
+    min-height: 400px;
+}
+
 /* NOTIFICATIONS */
 
 .notification {
@@ -76,8 +80,8 @@ p {
 }
 
 .ui.footer.segment {
-    margin: 5em 0em 0em;
-    padding: 5em 0em;
+    margin: 1em 0em 0em;
+    padding: 3em 0em;
 }
 
 .ui.footer .header {

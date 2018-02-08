@@ -62,7 +62,7 @@ router.get('/logout', function(req, res) {
  */
 // INDEX ROUTE
 router.get('/courses', isLoggedIn, function(req, res){
-	Course.find({}, function(err, results) {
+	Course.find({}).sort({'date': -1}).exec(function(err, results) {
 		if (err) {
 			console.log(err);
 		}
@@ -79,9 +79,12 @@ router.get('/courses/new', isLoggedIn, function (req,res) {
 
 // CREATE ROUTE
 router.post('/courses', isLoggedIn, function(req, res) {
-	req.body.Course.description = req.sanitize(req.body.Course.description);
-	Course.create(req.body.Course, function(err, newCourse) {
+	req.body.course.description = req.sanitize(req.body.course.description);
+	req.body.course.price = parseFloat(req.body.course.price);
+	req.body.course.image = "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg";
+	Course.create(req.body.course, function(err, newCourse) {
 		if (err){
+			console.log(err);
 			req.flash("error", "Erro ao criar o curso. Por favor, tente novamente.")
 			res.render("admin/courses/new");
 		}

@@ -1,24 +1,147 @@
 <div class="ui container raised segment">
-	<div class="ui huge center aligned header">New Campground</div>
-	<form action="/campgrounds" class="ui form" method="POST">
-		<div class="two fields">
-			<div class="field">
-				<label for="campground[name]">Name</label>
-				<input name="campground[name]" type="text" placeholder="Name">
-			</div>
-			<div class="field">
-				<label for="campground[image]">Image</label>
-				<input name="campground[image]" type="text" placeholder="Image Url">
-			</div>
-		</div>
-		<div class="field">
-			<label for="campground[description]">Description</label>
-			<textarea name="campground[description]"></textarea>
-		</div>
-		<div class="right aligned field">
-			<div class="ui right aligned container">
-				<input type="submit" class="ui blue inverted button" value="Add Campground">
-			</div>
-		</div>
-	</form>
+  <div class="ui huge center aligned header">Novo Curso</div>
+  <form action="/admin/courses" class="ui form" method="POST">
+    <div class="two fields">
+      <div class="field">
+        <label for="course[name]">Nome</label>
+        <input name="course[name]" type="text" placeholder="Nome">
+      </div>
+      <div class="field">
+        <label for="course[address]">Endereço</label>
+        <input name="course[address]" type="text" placeholder="Rua Olinto Meireles, 65, Barreiro - Belo Horizonte, MG">
+      </div>
+    </div>
+    <div class="three fields">
+      <div class="field">
+        <label for="course[date]">Data e Horário</label>
+        <div class="ui calendar" id="dateCalendar">
+          <div class="ui input left icon">
+            <i class="calendar icon"></i>
+            <input readonly name="course[date]" type="text" placeholder="" data-mask="00/00/0000 00:00">
+          </div>    
+        </div>
+      </div>
+      <div class="field">
+        <label for="course[duration]">Duração</label>
+        <input name="course[duration]" type="text" placeholder="Ex: 6 horas e 30 minutos">
+      </div>
+      <div class="field">
+        <label for="course[price]">Preço</label>
+        <div class="ui labeled input">
+          <div class="ui label">
+            R$
+          </div>
+          <input name="course[price]" type="text" placeholder="Ex: 60,52">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="course[description]">Descrição</label>
+      <textarea name="course[description]"></textarea>
+    </div>
+    <div class="right aligned field">
+      <div class="ui right aligned container">
+        <a href="/admin/courses" class="ui basic button"> Voltar </a>
+        <input type="submit" class="ui positive button" value="Adicionar Curso">
+      </div>
+    </div>
+  </form>
 </div>
+
+{{#section 'script'}}
+  <script type="application/javascript">
+      $(document).ready(function() {
+        var today = new Date();
+        $('#dateCalendar').calendar({
+          ampm: false,
+          initialDate: null,
+          minDate: today,
+          text: {
+            days: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'May', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            today: 'Hoje',
+            now: 'Agora',
+            am: 'AM',
+            pm: 'PM'
+          },
+          formatter: {
+            date: function (date, settings) {
+              if (!date) return '';
+              var day = ('0' + date.getDate()).slice(-2);
+              var month = ('0' + (date.getMonth() + 1)).slice(-2);
+              var year = date.getFullYear();
+              return day + '/' + month + '/' + year;
+            }
+          }
+        });
+      });
+
+      $('.ui.form')
+        .form({
+          inline : true,
+          on     : 'blur',
+          fields : {
+            name: {
+              identifier: 'course[name]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira um nome para o curso'
+                }
+              ]
+            },
+            address: {
+              identifier: 'course[address]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira um endereço'
+                }
+              ]
+            },
+            price: {
+              identifier: 'course[price]',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Por favor, insira um preço'
+                },
+                {
+                  type: 'regExp[/(^[0-9]+$|^[0-9]+[,.]{1}[0-9]{1,2}$)/]',
+                  prompt: 'Este preço não é válido'
+                }
+              ]
+            },
+            date: {
+              identifier: 'course[date]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira uma data'
+                }
+              ]
+            },
+            duration: {
+              identifier: 'course[duration]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira uma duração'
+                }
+              ]
+            },
+            description: {
+              identifier: 'course[description]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira uma descrição'
+                }
+              ]
+            }
+          }
+        })
+      ;
+  </script>
+{{/section}}

@@ -8,7 +8,7 @@ var Course  = require('../models/course');
 
 // INDEX ROUTE
 router.get('/', function(req, res){
-	Course.find({}, function(err, results) {
+	Course.find({}).sort({'date': -1}).exec(function(err, results) {
 		if (err) {
 			console.log(err);
 		}

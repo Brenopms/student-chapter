@@ -11,47 +11,47 @@ var userData = [
 var courseData = [
 	{
 		name: "Dummy Course 1",
-		image: "http://oddculture.com/wp-content/uploads/2015/12/Camping-Near-The-Lake-Background-Wallpaper.jpg",
+		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
-		duration: 5,
+		duration: "6 horas e 30 minutos",
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
 		name: "Dummy Course 2",
-		image: "http://oddculture.com/wp-content/uploads/2015/12/Camping-Near-The-Lake-Background-Wallpaper.jpg",
+		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
-		duration: 5,
+		duration: "6 horas e 30 minutos",
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
 		name: "Dummy Course 3",
-		image: "http://oddculture.com/wp-content/uploads/2015/12/Camping-Near-The-Lake-Background-Wallpaper.jpg",
+		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
-		duration: 5,
+		duration: "6 horas e 30 minutos",
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
 		name: "Dummy Course 4",
-		image: "http://oddculture.com/wp-content/uploads/2015/12/Camping-Near-The-Lake-Background-Wallpaper.jpg",
+		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
-		duration: 5,
+		duration: "6 horas e 30 minutos",
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 	{
 		name: "Dummy Course 5",
-		image: "http://oddculture.com/wp-content/uploads/2015/12/Camping-Near-The-Lake-Background-Wallpaper.jpg",
+		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
-		duration: 5,
+		duration: "6 horas e 30 minutos",
 		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
 	},
 ];
