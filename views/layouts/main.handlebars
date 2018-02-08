@@ -28,6 +28,8 @@
     </div>
   </div>
 
+  {{> messages}}
+
   {{#if currentUser}}
     {{{body}}}
   {{else}}
@@ -45,7 +47,7 @@
 
     $(document).ready(function () {
       // Trigger Animations
-      $(".animated[data-animation-trigger='bottom']").visibility({
+      $(".animation[data-animation-trigger='bottom']").visibility({
         onBottomVisible: function() {
           $(this).transition({
             animation: $(this).attr('data-animation'),
@@ -53,7 +55,7 @@
           });
         }
       })
-      $(".animated[data-animation-trigger='top']").visibility({
+      $(".animation[data-animation-trigger='top']").visibility({
         onTopVisible: function() {
           $(this).transition({
             animation: $(this).attr('data-animation'),
@@ -62,8 +64,21 @@
         }
       })
 
-      // Set active menus
+      // Notifications Close
+      $('.message .close')
+        .on('click', function() {
+          $(this)
+            .closest('.message')
+            .transition('fade down')
+          ;
+        });
 
+      $('.notification').delay(7000).queue(function() {
+        $(this).transition({
+          animation: 'fade down',
+          duration: '1.0s'
+        });
+      });
     })
   </script>
 </body>

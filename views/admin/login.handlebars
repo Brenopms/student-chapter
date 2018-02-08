@@ -1,15 +1,22 @@
-<div class="ui text segment container">
-	<form action="/admin/login" class="ui form" method="POST">
-		<div class="required field">
-			<label>Usuário</label>
-			<input required type="text" name="username" placeholder="Nome de Usuário">
+<div class="ui container">
+	<h1 class="ui horizontal header divider">
+		<i class="blue sign in middle aligned icon"></i> Iniciar Sessão de Administrador
+	</h1>
+	<div class="ui text container">
+		<div class="ui raised segment">
+			<form action="/admin/login" class="ui form" method="POST">
+				<div class="required field">
+					<label>Usuário</label>
+					<input required type="text" name="username" placeholder="Nome de Usuário">
+				</div>
+				<div class="required field">
+					<label>Senha</label>
+					<input required type="password" name="password" placeholder="********">
+				</div>
+				<div class="field" style="overflow: hidden;">
+					<button class="ui right floated blue button" type="submit">Login</button>
+				</div>
+			</form>
 		</div>
-		<div class="required field">
-			<label>Senha</label>
-			<input required type="password" name="password" placeholder="********">
-		</div>
-		<div class="field" style="overflow: hidden;">
-			<button class="ui right floated blue button" type="submit">Login</button>
-		</div>
-	</form>
+	</div>
 </div>

@@ -40,6 +40,9 @@ var register = function (Handlebars) {
 		},
 		multiply: function(value, multiplier, offset) {
 			return parseFloat(value)*(parseFloat(multiplier) + parseFloat(offset));
+		},
+		log: function(obj) {
+			console.log(obj);
 		}
 	};
 

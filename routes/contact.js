@@ -27,8 +27,8 @@ router.post('/', function(req, res) {
   var contact = req.body.contact;
   const mailOptions = {
     from:    'ufmgstudentchapter@gmail.com',
-    to:      contact["email"],
-    subject: 'Nova Mensagem de ' + contact["name"],
+    to:      'ufmgstudentchapter@gmail.com',
+    subject: contact["subject"],
     html:    '<p>Nome: ' + contact["name"] + '</p>' +
       '<p>E-mail: ' + contact["email"] + ' </p>' +
       '<p>Mensagem: ' + contact["message"] + ' </p>'
@@ -36,10 +36,12 @@ router.post('/', function(req, res) {
   transporter.sendMail(mailOptions, function (err, info) {
      if(err) {
        console.log(err)
+       req.flash("error", "Erro ao enviar a mensagem. Por favor, tente novamente.")
        res.render("contact/index");
      }
      else {
        console.log(info);
+       req.flash("success", "Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato com você!");
        res.redirect("/");
      }
   });

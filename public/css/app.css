@@ -8,6 +8,11 @@ p {
     line-height: 1.5;
 }
 
+.notification p {
+    font-size: 1em;
+    line-height: 1;
+}
+
 .subtext {
     float: right;
     color: #aaa;
@@ -18,8 +23,36 @@ p {
     text-align: justify;
 }
 
-.animated {
+.animation {
     visibility: hidden;
+}
+
+/* NOTIFICATIONS */
+
+.notification {
+    position: fixed;
+    left: 50%;
+    z-index: 500;
+}
+
+.notification > div{
+    position:relative;
+    left:-50%;
+}
+
+.ui.icon.message > span > .icon {
+    display: block;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 3em;
+    opacity: .8;
+    margin-right: .4em;
+    margin-left: -.2em;
 }
 
 /* MAIN MENU */

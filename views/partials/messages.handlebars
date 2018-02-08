@@ -1,0 +1,50 @@
+<div class="ui text container animation notification" data-animation="fade down" data-animation-trigger="top" data-animation-duration="0.7s">
+  {{#each messages.info}}
+    <div class="ui info floating icon tiny message">
+      <i class="small close icon"></i>
+      <i class="info icon"></i>
+      <div class="content">
+        <div class="header">
+          Você sabia?
+        </div>
+        <p>{{ this }}</p>
+      </div>
+    </div>
+  {{/each}}
+  {{#each messages.warning}}
+    <div class="ui warning floating icon tiny message">
+      <i class="small close icon"></i>
+      <i class="warning icon"></i>
+      <div class="content">
+        <div class="header">
+          Cuidado!
+        </div>
+        <p>{{ this }}</p>
+      </div>
+    </div>
+  {{/each}}
+  {{#each messages.error}}
+    <div class="ui error floating icon tiny message">
+      <i class="small close icon"></i>
+      <span><i class="close icon"></i></span>
+      <div class="content">
+        <div class="header">
+          Erro!
+        </div>
+        <p>{{ this }}</p>
+      </div>
+    </div>
+  {{/each}}
+  {{#each messages.success}}
+    <div class="ui success floating icon tiny message">
+      <i class="small close icon"></i>
+      <i class="check circle outline icon"></i>
+      <div class="content">
+        <div class="header">
+          Sucesso!
+        </div>
+        <p>{{ this }}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -34,18 +34,26 @@ router.get('/', isLoggedIn, function (req, res) {
 
 // Login Form
 router.get('/login', function (req, res) {
-	res.render('admin/login');
+	if(req.isAuthenticated()){
+		res.redirect('/admin');
+	}
+	else {
+		res.render('admin/login');
+	}
 });
 
 // Login Logic Handling
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/admin',
-	failureRedirect: '/admin/login'
+	failureRedirect: '/admin/login',
+	successFlash: 'Seja bem vindo!',
+	failureFlash: 'Usuário ou senha inválidos.'
 }), function (req, res) {});
 
 // Logout Logic Handling
 router.get('/logout', function(req, res) {
 	req.logout();
+	req.flash("info", "A sessão foi encerrada.")
 	res.redirect('/');
 });
 
@@ -74,9 +82,11 @@ router.post('/courses', isLoggedIn, function(req, res) {
 	req.body.Course.description = req.sanitize(req.body.Course.description);
 	Course.create(req.body.Course, function(err, newCourse) {
 		if (err){
+			req.flash("error", "Erro ao criar o curso. Por favor, tente novamente.")
 			res.render("admin/courses/new");
 		}
 		else {
+			req.flash("success", "Curso criado com sucesso!")
 			res.redirect("/admin/courses");
 		}
 	});
