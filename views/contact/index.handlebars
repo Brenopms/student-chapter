@@ -1,57 +1,6 @@
 <div class="ui container">
 	<h1 class="ui horizontal header divider">
-		<i class="blue comments outline middle aligned icon"></i>Entre em Contato Conosco
+		<i class="blue talk outline middle aligned icon"></i>Entre em Contato Conosco
 	</h1>
-	<div class="ui text container">
-		<div class="ui horizontal relaxed large divided list">
-			<div class="item">
-				<i class="large marker middle aligned icon"></i>
-				<div class="content">
-					<div class="header">Endereço</div>
-					<div class="description"> Minas Gerais, Brasil </div>
-				</div>
-			</div>
-			<div class="item">
-				<i class="large phone middle aligned icon"></i>
-				<div class="content">
-					<div class="header">Telefone</div>
-					<div class="description"><a href="tel:+31 99987-0262">+31 99987-0262</a></div>
-				</div>
-			</div>
-			<div class="item">
-				<i class="large mail envelope outline middle aligned icon"></i>
-				<div class="content">
-					<div class="header">E-mail</div>
-					<div class="description"><a href="mailto:ufmgstudentchapter@gmail.com">ufmgstudentchapter@gmail.com</a></div>
-				</div>
-			</div>
-		</div>
-		<div class="ui raised segment">
-			<form action="/contact" class="ui form" method="POST">
-				<div class="field">
-					<label for="contact[subject]">Assunto</label>
-					<input required name="contact[subject]" type="text" placeholder="Assunto do E-mail">
-				</div>
-				<div class="two fields">
-					<div class="field">
-						<label for="contact[name]">Nome</label>
-						<input required name="contact[name]" type="text" placeholder="Nome Completo">
-					</div>
-					<div class="field">
-						<label for="contact[email]">E-mail</label>
-						<input required name="contact[email]" type="email" placeholder="E-mail">
-					</div>
-				</div>
-				<div class="field">
-					<label for="contact[message]">Mensagem</label>
-					<textarea required name="contact[message]"></textarea>
-				</div>
-				<div class="right aligned field">
-					<div class="ui right aligned container">
-						<input type="submit" class="ui blue button" value="Enviar Mensagem">
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	{{> contactForm}}
 </div>

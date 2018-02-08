@@ -1,75 +1,87 @@
+<div class="ui container margin bottom top small">
+  <h1 class="ui horizontal header divider">
+		<i class="blue dashboard middle aligned icon"></i> Painel de Controle
+	</h1>
+</div>
 <div class="ui grid container">
-    <div class="three wide column">
-      <div class="ui secondary vertical pointing fluid menu">
-        <a href="/admin/courses" class="active item">
-          Cursos
-        </a>
-        <a href="/admin/courses" class="item">
-          Inscrições
-        </a>
-        <a href="/admin/courses" class="item">
-          Membros
-        </a>
-      </div>
+  <div class="three wide column">
+    <div class="ui secondary vertical pointing fluid menu">
+      <a href="/admin/courses" class="active item">
+        Cursos
+      </a>
+      <a href="/admin/courses" class="item">
+        Inscrições
+      </a>
+      <a href="/admin/courses" class="item">
+        Membros
+      </a>
     </div>
-    <div class="thirteen wide column">
-      <table class="ui celled table">
-        <thead>
-          <tr>
-            <th><div class="ui blue ribbon label">Nome do Curso</div></th>
-            <th>Data</th>
-            <th>Opções</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each courses}}
-            <tr>
-              <td>{{name}}</td>
-              <td>{{moment date 'DD/MM/YYYY'}}</td>
-              <td>
-                <form action="/admin/courses/{{_id}}" class="ui form" method="POST">
-                  <div class="ui three buttons small">
-                    <a class="ui animated fade button " tabindex="0" href="/admin/courses/{{_id}}">
-                      <div class="visible content">Ver</div>
-                      <div class="hidden content">
-                        <i class="search icon"></i>
-                      </div>
-                    </a>
-                    <a class="ui animated fade button primary" tabindex="0" href="/admin/courses/{{_id}}/edit">
-                      <div class="visible content">Editar</div>
-                      <div class="hidden content">
-                        <i class="edit icon"></i>
-                      </div>
-                    </a>
-                    <button class="ui animated fade button negative" tabindex="0" type="submit">
-                      <div class="visible content">Deletar</div>
-                      <div class="hidden content">
-                        <i class="remove icon"></i>
-                      </div>
-                    </button>
-                  </div>
-                </form>
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-        <tfoot>
-          <tr><th colspan="3">
-            <div class="ui right floated pagination menu">
-              <a class="icon item">
-                <i class="left chevron icon"></i>
-              </a>
-              <a class="item">1</a>
-              <a class="item">2</a>
-              <a class="item">3</a>
-              <a class="item">4</a>
-              <a class="icon item">
-                <i class="right chevron icon"></i>
-              </a>
-            </div>
+  </div>
+  <div class="thirteen wide column">
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>
+            <div class="ui blue ribbon label">Nome do Curso</div>
+            <a class="ui animated fade tiny positive button " tabindex="0" href="/admin/courses/{{_id}}">
+              <div class="visible content">Novo</div>
+              <div class="hidden content">
+                <i class="plus icon"></i>
+              </div>
+            </a>
           </th>
-        </tr></tfoot>
-      </table>
-    </div>
+          <th>Data</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each courses}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{moment date 'DD/MM/YYYY'}}</td>
+            <td>
+              <form action="/admin/courses/{{_id}}" class="ui form" method="POST">
+                <div class="ui three buttons tiny">
+                  <a class="ui animated fade button " tabindex="0" href="/admin/courses/{{_id}}">
+                    <div class="visible content">Ver</div>
+                    <div class="hidden content">
+                      <i class="search icon"></i>
+                    </div>
+                  </a>
+                  <a class="ui animated fade button primary" tabindex="0" href="/admin/courses/{{_id}}/edit">
+                    <div class="visible content">Editar</div>
+                    <div class="hidden content">
+                      <i class="edit icon"></i>
+                    </div>
+                  </a>
+                  <button class="ui animated fade button negative" tabindex="0" type="submit">
+                    <div class="visible content">Deletar</div>
+                    <div class="hidden content">
+                      <i class="remove icon"></i>
+                    </div>
+                  </button>
+                </div>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr><th colspan="3">
+          <div class="ui right floated pagination menu">
+            <a class="icon item">
+              <i class="left chevron icon"></i>
+            </a>
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+            <a class="icon item">
+              <i class="right chevron icon"></i>
+            </a>
+          </div>
+        </th>
+      </tr></tfoot>
+    </table>
   </div>
 </div>

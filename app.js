@@ -8,7 +8,6 @@ var methodOverride   = require('method-override');
 var passport         = require('passport');
 var LocalStrategy    = require('passport-local');
 var flash            = require('express-flash');
-var session          = require('express-session')
 var i18n             = require('i18n');
 var seedDB           = require("./seeds");
 var app              = express();
@@ -44,11 +43,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
-
 
 /**
  * Database Models
@@ -60,6 +54,7 @@ var User = require('./models/user');
  */
 app.use(require("express-session")({
 	secret: "Custom Secret Seed Text for Your App",
+	cookie: { maxAge: 60000 },
 	resave: false,
 	saveUninitialized: false
 }));
@@ -69,7 +64,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.use(cookieParser('secretString'));
-app.use(session({cookie: { maxAge: 60000 }}));
 app.use(flash());
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;

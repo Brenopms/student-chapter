@@ -8,25 +8,8 @@
   <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
 <body>
-  <div class="ui borderless main menu">
-    <div class="ui container">
-      <a href="/" class="header item">
-        <i class="home icon"></i>
-        UFMG Student Chapter
-      </a>
-      <a href="/courses" class="item"> <i class="book icon"></i> Cursos </a>
-      <a href="/contact" class="item"> <i class="mail envelope outline icon"></i> Contato </a>
-      {{#if currentUser}}
-        <a href="/admin" class="item"> <i class="dashboard icon"></i> Painel de Controle </a>
-      {{/if}}
-      <div class="right menu">
-        {{#if currentUser}}
-          <div class="item">Iniciou a sessão como &nbsp;<b> {{currentUser.username}}</b></div>
-          <a href="/admin/logout" class="item"> <i class="sign out icon"></i> Sair</a>
-        {{/if}}
-      </div>
-    </div>
-  </div>
+
+  {{> header}}
 
   {{> messages}}
 
@@ -36,6 +19,7 @@
     {{{body}}}
   {{/if}}
 
+  {{> footer}}
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="/semantic-ui/semantic.min.js"></script>

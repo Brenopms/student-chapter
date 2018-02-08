@@ -13,7 +13,7 @@ var Course   = require('../models/course');
 // Home Page
 router.get('/', function(req,res){
 	Course.find({}).sort({'date': -1}).limit(3).exec(function(err, results) {
-		if (err) {
+		if (err) { 
 			console.log(err);
 		}
 		else {

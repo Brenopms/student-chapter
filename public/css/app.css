@@ -55,7 +55,7 @@ p {
     margin-left: -.2em;
 }
 
-/* MAIN MENU */
+/* HEADER AND FOOTER */
 
 .main.menu {
     margin-top: 2em !important;
@@ -74,6 +74,17 @@ p {
     background-color: #fff;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
 }
+
+.ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+}
+
+.ui.footer .header {
+  color: rgb(255, 255, 255);
+}
+
+/* HOME PAGE */
 
 .masthead {
     margin-bottom: 4em;
