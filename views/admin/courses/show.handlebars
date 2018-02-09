@@ -1,0 +1,53 @@
+<div class="ui container">
+	<table class="ui very basic celled table">
+		<thead>
+			<tr>
+				<th>
+					<div class="ui blue ribbon label">Campo</div>
+					</a>
+				</th>
+				<th>Valor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Id</td>
+				<td>{{course._id}}</td>
+			</tr>
+			<tr>
+				<td>Nome</td>
+				<td>{{course.name}}</td>
+			</tr>
+			<tr>
+				<td>Endereço</td>
+				<td>{{course.address}}</td>
+			</tr>
+			<tr>
+				<td>Data e Horário</td>
+				<td>{{moment course.date 'DD/MM/YYYY, HH:mm'}}</td>
+			</tr>
+			<tr>
+				<td>Duração</td>
+				<td>{{course.duration}}</td>
+			</tr>
+			<tr>
+				<td>Preço</td>
+				<td>{{formatCurrency course.price}}</td>
+			</tr>
+			<tr>
+				<td>Descrição</td>
+				<td>{{course.description}}</td>
+			</tr>
+			<tr>
+				<td>Imagem</td>
+				<td><img class="ui spaced medium image" src="/uploads/{{course.image}}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="ui center aligned container">
+		<a href="/admin/courses" class="ui basic button"> <i class="left arrow icon"></i>Voltar </a>
+		<a href="/admin/courses/{{course._id}}" class="ui red button"> Deletar </a>
+		<a href="/admin/courses/{{course._id}}/edit" class="ui blue button"> Editar </a>
+	</div>
+
+</div>

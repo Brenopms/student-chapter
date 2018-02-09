@@ -1,6 +1,6 @@
 <div class="ui container raised segment">
   <div class="ui huge center aligned header">Novo Curso</div>
-  <form action="/admin/courses" class="ui form" method="POST">
+  <form action="/admin/courses" class="ui form" method="POST" enctype="multipart/form-data">
     <div class="two fields">
       <div class="field">
         <label for="course[name]">Nome</label>
@@ -18,7 +18,7 @@
           <div class="ui input left icon">
             <i class="calendar icon"></i>
             <input readonly name="course[date]" type="text" placeholder="" data-mask="00/00/0000 00:00">
-          </div>    
+          </div>
         </div>
       </div>
       <div class="field">
@@ -39,9 +39,13 @@
       <label for="course[description]">Descrição</label>
       <textarea name="course[description]"></textarea>
     </div>
+    <div class="field">
+      <label for="imageFile">Imagem</label>
+      <input type="file" name="imageFile">
+    </div>
     <div class="right aligned field">
       <div class="ui right aligned container">
-        <a href="/admin/courses" class="ui basic button"> Voltar </a>
+        <a href="/admin/courses" class="ui basic button"> <i class="left arrow icon"></i> Voltar </a>
         <input type="submit" class="ui positive button" value="Adicionar Curso">
       </div>
     </div>

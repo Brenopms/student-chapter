@@ -8,6 +8,8 @@ var methodOverride   = require('method-override');
 var passport         = require('passport');
 var LocalStrategy    = require('passport-local');
 var flash            = require('express-flash');
+var multer           = require('multer');
+var crypto           = require('crypto');
 var i18n             = require('i18n');
 var seedDB           = require("./seeds");
 var app              = express();
@@ -54,7 +56,6 @@ var User = require('./models/user');
  */
 app.use(require("express-session")({
 	secret: "Custom Secret Seed Text for Your App",
-	cookie: { maxAge: 60000 },
 	resave: false,
 	saveUninitialized: false
 }));

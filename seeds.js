@@ -11,7 +11,7 @@ var userData = [
 var courseData = [
 	{
 		name: "Dummy Course 1",
-		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
+		image: "1518137364920-money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
@@ -20,7 +20,7 @@ var courseData = [
 	},
 	{
 		name: "Dummy Course 2",
-		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
+		image: "1518137364920-money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
@@ -29,7 +29,7 @@ var courseData = [
 	},
 	{
 		name: "Dummy Course 3",
-		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
+		image: "1518137364920-money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
@@ -38,7 +38,7 @@ var courseData = [
 	},
 	{
 		name: "Dummy Course 4",
-		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
+		image: "1518137364920-money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
@@ -47,7 +47,7 @@ var courseData = [
 	},
 	{
 		name: "Dummy Course 5",
-		image: "https://image.freepik.com/free-vector/money-in-exchange-for-an-idea_23-2147492044.jpg",
+		image: "1518137364920-money-in-exchange-for-an-idea_23-2147492044.jpg",
 		description: "Random Description for our Dummy Course",
 		date: new Date(),
 		price: 50.0,
