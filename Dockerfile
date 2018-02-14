@@ -1,4 +1,6 @@
 FROM node:8.3
+RUN apk add --no-cache tzdata
+ENV TZ America/Sao_Paulo
 RUN mkdir /app
 WORKDIR /app
 

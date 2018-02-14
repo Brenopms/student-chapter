@@ -1,14 +1,17 @@
 <div class="ui container raised segment">
-  <div class="ui huge center aligned header">Novo Curso</div>
-  <form action="/admin/courses" class="ui form" method="POST" enctype="multipart/form-data">
+  <div class="ui huge center aligned header">Editar Curso </div>
+  <form action="/admin/courses/{{course._id}}?_method=PUT" class="ui form" method="POST" enctype="multipart/form-data">
+    <div class="ui small margin bottom blue label">
+      ID: {{course._id}}
+    </div>
     <div class="two fields">
       <div class="field">
         <label for="course[name]">Nome</label>
-        <input name="course[name]" type="text" placeholder="Nome">
+        <input name="course[name]" type="text" placeholder="Nome" value="{{course.name}}">
       </div>
       <div class="field">
         <label for="course[address]">Endereço</label>
-        <input name="course[address]" type="text" placeholder="Rua Olinto Meireles, 65, Barreiro - Belo Horizonte, MG">
+        <input name="course[address]" type="text" placeholder="Rua Olinto Meireles, 65, Barreiro - Belo Horizonte, MG" value="{{course.address}}">
       </div>
     </div>
     <div class="three fields">
@@ -17,13 +20,13 @@
         <div class="ui calendar" id="dateCalendar">
           <div class="ui input left icon">
             <i class="calendar icon"></i>
-            <input readonly name="course[date]" type="text" placeholder="" data-mask="00/00/0000 00:00">
+            <input readonly name="course[date]" type="text" placeholder="" data-mask="00/00/0000 00:00" value="{{moment course.date 'DD/MM/YYYY HH:mm'}}">
           </div>
         </div>
       </div>
       <div class="field">
         <label for="course[duration]">Duração</label>
-        <input name="course[duration]" type="text" placeholder="Ex: 6 horas e 30 minutos">
+        <input name="course[duration]" type="text" placeholder="Ex: 6 horas e 30 minutos" value="{{course.duration}}">
       </div>
       <div class="field">
         <label for="course[price]">Preço</label>
@@ -31,22 +34,26 @@
           <div class="ui label">
             R$
           </div>
-          <input name="course[price]" type="text" placeholder="Ex: 60,52">
+          <input name="course[price]" type="text" placeholder="Ex: 60,52" value="{{formatCurrency course.price false}}">
         </div>
       </div>
     </div>
     <div class="field">
       <label for="course[description]">Descrição</label>
-      <textarea name="course[description]"></textarea>
+      <textarea name="course[description]">{{course.description}}</textarea>
     </div>
     <div class="field">
       <label for="imageFile">Imagem</label>
-      <input required type="file" name="imageFile" accept=".png, .jpg, .jpeg">
+      <div class="ui center aligned small margin bottom container">
+        <img class="ui small centered image" src="/uploads/{{course.image}}">
+        <h5 class="ui header">Selecione uma nova imagem para substituir a anterior</h5>
+      </div>
+      <input type="file" name="imageFile" accept=".png, .jpg, .jpeg">
     </div>
     <div class="right aligned field">
       <div class="ui right aligned container">
         <a href="/admin/courses" class="ui basic button"> <i class="left arrow icon"></i> Voltar </a>
-        <input type="submit" class="ui positive button" value="Adicionar Curso">
+        <input type="submit" class="ui positive button" value="Salvar Alterações">
       </div>
     </div>
   </form>

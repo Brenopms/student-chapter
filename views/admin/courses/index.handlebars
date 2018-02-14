@@ -40,7 +40,7 @@
             <td>{{name}}</td>
             <td>{{moment date 'DD/MM/YYYY'}}</td>
             <td>
-              <form action="/admin/courses/{{_id}}" class="ui form" method="POST">
+              <form action="/admin/courses/{{_id}}?_method=DELETE" class="ui delete form" method="POST">
                 <div class="ui three buttons tiny">
                   <a class="ui animated fade button " tabindex="0" href="/admin/courses/{{_id}}">
                     <div class="visible content">Ver</div>
@@ -54,7 +54,7 @@
                       <i class="edit icon"></i>
                     </div>
                   </a>
-                  <button class="ui animated fade button negative" tabindex="0" type="submit">
+                  <button class="ui animated fade deleteCourse button negative" tabindex="0" type="submit">
                     <div class="visible content">Deletar</div>
                     <div class="hidden content">
                       <i class="remove icon"></i>
@@ -87,3 +87,42 @@
     </table>
   </div>
 </div>
+
+<div id="deleteModal" class="ui basic modal">
+  <div class="ui icon header">
+    <i class="close icon"></i>
+    Deletar Curso
+  </div>
+  <div class="content">
+    <p>O curso será completamente deletado e não poderá ser recuperado. Você tem certeza que deseja deletar esse curso?</p>
+  </div>
+  <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      Não
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Sim
+    </div>
+  </div>
+</div>
+
+{{#section 'script'}}
+  <script type="application/javascript">
+		$('.ui.deleteCourse').on('click', function(e){
+			e.preventDefault();
+			var $form=$(this).parents(".form.delete");
+			$('#deleteModal').modal({
+				closable  : false,
+				onDeny    : function(){
+
+				},
+				onApprove : function() {
+					$form.submit();
+				}
+			})
+			.modal('show');
+		});
+  </script>
+{{/section}}

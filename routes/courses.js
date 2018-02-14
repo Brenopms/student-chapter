@@ -18,45 +18,23 @@ router.get('/', function(req, res){
 	});
 });
 
-// NEW ROUTE
-router.get('/new', isLoggedIn, function (req,res) {
-	res.render('courses/new');
-});
-
-// CREATE ROUTE
-router.post('/', isLoggedIn, function(req, res) {
-	req.body.course.description = req.sanitize(req.body.course.description);
-	Course.create(req.body.course, function(err, newCourse) {
-		if (err){
-			res.render("courses/new");
-		}
-		else {
-			newCourse.save();
-			res.redirect("/courses");
-		}
-	});
-});
-
 // SHOW ROUTE
 router.get('/:id', function(req,res) {
 	Course.findById(req.params.id, function(err, course) {
 		if (err) {
 			console.log(err);
+			req.flash("error", "Não foi possível encontrar o curso.");
+      res.redirect("/");
 		}
 		else {
-			res.render("courses/show", {course: course});
+			if (course)
+        res.render("courses/show", {course: course});
+      else {
+        req.flash("error", "Não foi possível encontrar o curso.");
+        res.redirect("/courses");
+      }
 		}
 	});
 });
-
-/**
- * Auth Function
- */
-function isLoggedIn(req, res, next) {
-	if(req.isAuthenticated()){
-		return next();
-	}
-	res.redirect('/login');
-}
 
 module.exports = router;

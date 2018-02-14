@@ -1,4 +1,4 @@
-<div class="ui container">
+<div class="ui text container">
 	<table class="ui very basic celled table">
 		<thead>
 			<tr>
@@ -45,9 +45,49 @@
 		</tbody>
 	</table>
 	<div class="ui center aligned container">
-		<a href="/admin/courses" class="ui basic button"> <i class="left arrow icon"></i>Voltar </a>
-		<a href="/admin/courses/{{course._id}}" class="ui red button"> Deletar </a>
-		<a href="/admin/courses/{{course._id}}/edit" class="ui blue button"> Editar </a>
+		<form action="/admin/courses/{{course._id}}?_method=DELETE" method="POST" class="ui delete form">
+			<a href="/admin/courses" class="ui basic button"> <i class="left arrow icon"></i>Voltar </a>
+			<input type="submit" class="ui red deleteCourse button" value="Deletar"/>
+			<a href="/admin/courses/{{course._id}}/edit" class="ui blue button"> Editar </a>
+		</form>
 	</div>
-
 </div>
+
+<div id="deleteModal" class="ui basic modal">
+  <div class="ui icon header">
+    <i class="close icon"></i>
+    Deletar Curso
+  </div>
+  <div class="content">
+    <p>O curso será completamente deletado e não poderá ser recuperado. Você tem certeza que deseja deletar esse curso?</p>
+  </div>
+  <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      Não
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Sim
+    </div>
+  </div>
+</div>
+
+{{#section 'script'}}
+  <script type="application/javascript">
+		$('.ui.deleteCourse').on('click', function(e){
+			e.preventDefault();
+			var $form=$(this).parents(".form.delete");
+			$('#deleteModal').modal({
+				closable  : false,
+				onDeny    : function(){
+
+				},
+				onApprove : function() {
+					$form.submit();
+				}
+			})
+			.modal('show');
+		});
+  </script>
+{{/section}}

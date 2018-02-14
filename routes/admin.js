@@ -56,9 +56,9 @@ router.get('/logout', function(req, res) {
 /**
  * COURSE ROUTES
  */
-// INDEX ROUTE
+// INDEX COURSE ROUTE
 router.get('/courses', isLoggedIn, function(req, res){
-  Course.find({}).sort({'date': -1}).exec(function(err, results) {
+  Course.find({}).sort({'updated_at': -1}).exec(function(err, results) {
     if (err) {
       console.log(err);
     }
@@ -68,18 +68,17 @@ router.get('/courses', isLoggedIn, function(req, res){
   });
 });
 
-// NEW ROUTE
+// NEW COURSE ROUTE
 router.get('/courses/new', isLoggedIn, function (req,res) {
   res.render('admin/courses/new');
 });
 
-// CREATE ROUTE
+// CREATE COURSE ROUTE
 router.post('/courses', isLoggedIn, upload.single('imageFile'), function(req, res) {
   req.body.course.description = req.sanitize(req.body.course.description);
   req.body.course.price       = parseFloat(req.body.course.price);
   req.body.course.date        = moment.utc(req.body.course.date, "DD/MM/YYYY HH:mm");
   req.body.course.image       = req.file.filename;
-  console.log(req.file);
   Course.create(req.body.course, function(err, newCourse) {
     if (err){
       console.log(err);
@@ -93,17 +92,74 @@ router.post('/courses', isLoggedIn, upload.single('imageFile'), function(req, re
   });
 });
 
-// SHOW ROUTE
+// SHOW COURSE ROUTE
 router.get('/courses/:id', isLoggedIn, function(req,res) {
   Course.findById(req.params.id).exec(function(err, course) {
     if (err) {
       console.log(err);
+      req.flash("error", "Não foi possível encontrar o curso.");
+      res.redirect("/admin/courses");
     }
     else {
-      res.render("admin/courses/show", {course: course});
+      if (course)
+        res.render("admin/courses/show", {course: course});
+      else {
+        req.flash("error", "Não foi possível encontrar o curso.");
+        res.redirect("/admin/courses");
+      }
     }
   });
 });
+
+// EDIT COURSE ROUTE
+router.get('/courses/:id/edit', isLoggedIn, upload.single('imageFile'), function(req,res) {
+  Course.findById(req.params.id).exec(function(err, course) {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Não foi possível encontrar o curso.");
+      res.redirect("/admin/courses");
+    }
+    else {
+      res.render("admin/courses/edit", {course: course});
+    }
+  });
+});
+
+// UPDATE COURSE ROUTE
+router.put('/courses/:id', isLoggedIn, upload.single('imageFile'), function(req, res) {
+  req.body.course.description = req.sanitize(req.body.course.description);
+  req.body.course.price       = parseFloat(req.body.course.price);
+  req.body.course.date        = moment.utc(req.body.course.date, "DD/MM/YYYY HH:mm");
+  console.log(req.file);
+  if (req.file !== undefined)
+    req.body.course.image = req.file.filename;
+  Course.findByIdAndUpdate(req.params.id, req.body.course, function(err, course) {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Não foi possível atualizar o curso.");
+      res.redirect("/admin/courses");
+    }
+    else {
+      req.flash("success", "Curso atualizado com sucesso!")
+      res.redirect("/admin/courses/" + req.params.id);
+    }
+  });
+})
+
+// DESTROY COURSE ROUTE
+router.delete('/courses/:id', isLoggedIn, function(req, res) {
+  Course.findByIdAndRemove(req.params.id, function(err, course) {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Não foi possível deletar o curso.");
+      res.redirect("/admin/courses");
+    }
+    else {
+      req.flash("success", "Curso deletado com sucesso!")
+      res.redirect("/admin/courses");
+    }
+  });
+})
 
 /**
  * Auth Function
@@ -112,6 +168,7 @@ function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()){
     return next();
   }
+  req.flash("error", "É preciso estar logado para acessar essa sessão.");
   res.redirect('/admin/login');
 }
 
