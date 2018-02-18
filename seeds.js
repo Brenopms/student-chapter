@@ -16,7 +16,8 @@ var courseData = [
 		date: new Date(),
 		price: 50.0,
 		duration: "6 horas e 30 minutos",
-		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
+		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes",
+		formLink: "https://goo.gl/forms/WGtqyPgs0mas8gNt2"
 	},
 	{
 		name: "Dummy Course 2",
@@ -25,7 +26,8 @@ var courseData = [
 		date: new Date(),
 		price: 50.0,
 		duration: "6 horas e 30 minutos",
-		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
+		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes",
+		formLink: "https://goo.gl/forms/WGtqyPgs0mas8gNt2"
 	},
 	{
 		name: "Dummy Course 3",
@@ -34,7 +36,8 @@ var courseData = [
 		date: new Date(),
 		price: 50.0,
 		duration: "6 horas e 30 minutos",
-		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
+		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes",
+		formLink: "https://goo.gl/forms/WGtqyPgs0mas8gNt2"
 	},
 	{
 		name: "Dummy Course 4",
@@ -43,7 +46,8 @@ var courseData = [
 		date: new Date(),
 		price: 50.0,
 		duration: "6 horas e 30 minutos",
-		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
+		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes",
+		formLink: "https://goo.gl/forms/WGtqyPgs0mas8gNt2"
 	},
 	{
 		name: "Dummy Course 5",
@@ -52,7 +56,8 @@ var courseData = [
 		date: new Date(),
 		price: 50.0,
 		duration: "6 horas e 30 minutos",
-		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes"
+		address: "Rua Rio de Janeiro, 1288, Bairro Lourdes",
+		formLink: "https://goo.gl/forms/WGtqyPgs0mas8gNt2"
 	},
 ];
 

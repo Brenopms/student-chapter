@@ -43,6 +43,10 @@
       <textarea name="course[description]">{{course.description}}</textarea>
     </div>
     <div class="field">
+      <label for="course[formLink]">Link do Formulário</label>
+      <input name="course[formLink]" type="text" placeholder="Ex: https://goo.gl/forms/WGtqyPgs0mas8gNt2" value="{{course.formLink}}">
+    </div>
+    <div class="field">
       <label for="imageFile">Imagem</label>
       <div class="ui center aligned small margin bottom container">
         <img class="ui small centered image" src="/uploads/{{course.image}}">
@@ -148,6 +152,15 @@
                 {
                   type   : 'empty',
                   prompt : 'Por favor, insira uma descrição'
+                }
+              ]
+            },
+            formLink: {
+              identifier: 'course[formLink]',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Por favor, insira um link para o formulário de confirmação'
                 }
               ]
             }

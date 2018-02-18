@@ -9,6 +9,7 @@ var CourseSchema = new mongoose.Schema({
 	price: Number,
 	address: String,
 	duration: String,
+	formLink: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 module.exports = mongoose.model("Course", CourseSchema);

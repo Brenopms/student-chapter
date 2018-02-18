@@ -11,7 +11,6 @@ var flash            = require('express-flash');
 var multer           = require('multer');
 var crypto           = require('crypto');
 var i18n             = require('i18n');
-var seedDB           = require("./seeds");
 var app              = express();
 
 /**
@@ -26,7 +25,7 @@ var adminRoutes   = require('./routes/admin');
  * Database Setup
  */
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://mongo:27017/project_db_name", {
+mongoose.connect("mongodb://studentchapteradmin:PFuPRSZpOz2pQCKY@studentchaptercluster-shard-00-00-5oipe.mongodb.net:27017,studentchaptercluster-shard-00-01-5oipe.mongodb.net:27017,studentchaptercluster-shard-00-02-5oipe.mongodb.net:27017/test?ssl=true&replicaSet=StudentChapterCluster-shard-0&authSource=admin", {
 	keepAlive: true,
 	reconnectTries: Number.MAX_VALUE,
 	useMongoClient: true
@@ -70,11 +69,6 @@ app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });
-
-/**
- * Database Seeding
- */
-seedDB();
 
 /**
  * Routes Setup

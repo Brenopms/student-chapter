@@ -29,19 +29,25 @@
 		<h3 class="ui horizontal header divider top margin">
 			Reserve Agora
 		</h3>
-		<form class="ui big equal width form">
+		<form action="/courses/{{course._id}}/reserve" method="POST" class="ui big equal width form">
+			<div class="field">
+				<label>Nome</label>
+				<div class="ui input">
+					<input required type="text" name="reserve[name]" placeholder="Fulano">
+				</div>
+			</div>
 			<div class="fields">
 				<div class="field">
 					<label>Quantidade</label>
 					<div class="ui left icon input">
-						<input required type="text" placeholder="Número de Pessoas">
+						<input required type="text" name="reserve[quantity]" placeholder="Número de Pessoas">
 						<i class="shop icon"></i>
 					</div>
 				</div>
 				<div class="field">
 					<label>E-mail</label>
 					<div class="ui left icon input">
-						<input required type="email" placeholder="exemplo@gmail.com">
+						<input required type="email" name="reserve[email]" placeholder="exemplo@gmail.com">
 						<i class="user icon"></i>
 					</div>
 				</div>
