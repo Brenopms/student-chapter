@@ -9,6 +9,9 @@ var register = function (Handlebars) {
 		substring: function (string, min, max) {
 			return string.substring(min, max);
 		},
+		printText: function (string) {
+			return string.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		},
 		formatCurrency: function (value, hasPrefix) {
 			if (!hasPrefix || typeof hasPrefix != 'String')
 				return ('R$' + value.toFixed(2).toString().replace(".", ","));

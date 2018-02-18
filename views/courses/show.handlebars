@@ -2,7 +2,7 @@
 	<img class="ui fluid rounded image" src="/uploads/{{course.image}}">
 	<div class="ui full padding">
 		<h1 class="ui header">{{course.name}} <span class="subtext"><i class="calendar icon"></i>{{moment course.date 'DD/MM/YYYY, hh:mm'}}</span></h1>
-		<p class="justified">{{{course.description}}}</p>
+		<p class="justified">{{{printText course.description}}}</p>
 		<div class="ui relaxed divided list">
 			<div class="item">
 				<i class="large marker middle aligned icon"></i>
