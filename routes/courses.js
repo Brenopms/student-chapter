@@ -79,9 +79,10 @@ router.post('/:id/reserve', function(req,res) {
             subject: 'Interesse no Curso ' + course["name"],
             template: 'new.reserve',
             context: {
-                 name  : reserve["name"],
-                 price : reserve["quantity"] * course["price"],
-                 formLink : course["formLink"]
+                courseName: course["name"],
+                name  : reserve["name"],
+                price : reserve["quantity"] * course["price"],
+                formLink : course["formLink"]
             }
         }, function (err, info) {
            if(err) {
