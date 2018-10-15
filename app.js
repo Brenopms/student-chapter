@@ -79,6 +79,6 @@ app.use("/courses", coursesRoutes);
 app.use("/contact", contactRoutes);
 app.use("/admin", adminRoutes);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
 	console.log('UFMG Student Chapter App listening on port 3000!');
 });
