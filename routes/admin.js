@@ -38,6 +38,28 @@ router.get('/login', function (req, res) {
   }
 });
 
+// router.get('/register', (req, res) => {
+//   res.render('admin/register')
+// })
+
+// router.post('/register', (req, res) => {
+  
+//   const newUser = new User({username: req.body.user.username})
+//   User.register(newUser, req.body.user.password, (err, success) => {
+//     if (err){
+//       console.log(err);
+//       req.flash("error", "Erro ao criar o administrador.")
+//       res.render("admin/register");
+//     }
+//     else {
+//       passport.authenticate('local')(req, res, () => {
+//         req.flash("success", "Admin criado com sucesso!")
+//         res.redirect("admin/login");
+//       })
+//     }
+//   })
+// })
+
 // Login Logic Handling
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/admin',
