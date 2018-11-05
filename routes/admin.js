@@ -43,7 +43,6 @@ router.get('/login', function (req, res) {
 // })
 
 // router.post('/register', (req, res) => {
-
 //   const newUser = new User({username: req.body.user.username})
 //   User.register(newUser, req.body.user.password, (err, success) => {
 //     if (err){
