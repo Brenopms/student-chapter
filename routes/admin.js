@@ -11,7 +11,7 @@ var path = require('path');
  * Multer Setup
  */
 
-const absolutePath = path.join(__dirname, './public/uploads');
+const absolutePath = path.join(__dirname, '../../public/uploads');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
