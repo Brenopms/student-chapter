@@ -5,13 +5,17 @@ var multer   = require('multer');
 var moment   = require('moment');
 var User     = require('../models/user');
 var Course   = require('../models/course');
+var path = require('path');
 
 /**
  * Multer Setup
  */
+
+const absolutePath = path.join(__dirname, '../public/uploads');
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads')
+    cb(null, absolutePath);
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname);
