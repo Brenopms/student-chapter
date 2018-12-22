@@ -25,7 +25,7 @@ var adminRoutes   = require('./routes/admin');
  * Database Setup
  */
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://brenopms:B7FUqZtsC6KK5vr@ds131903.mlab.com:31903/student-chapter');
+mongoose.connect('mongodb://home:kdf2aL6CMZ4j6Q8@ds131903.mlab.com:31903/student-chapter');
 // mongoose.connect("mongodb://studentchapteradmin:PFuPRSZpOz2pQCKY@studentchaptercluster-shard-00-00-5oipe.mongodb.net:27017,studentchaptercluster-shard-00-01-5oipe.mongodb.net:27017,studentchaptercluster-shard-00-02-5oipe.mongodb.net:27017/test?ssl=true&replicaSet=StudentChapterCluster-shard-0&authSource=admin", {
 // 	keepAlive: true,
 // 	reconnectTries: Number.MAX_VALUE,

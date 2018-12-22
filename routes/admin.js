@@ -5,6 +5,7 @@ var multer   = require('multer');
 var moment   = require('moment');
 var User     = require('../models/user');
 var Course   = require('../models/course');
+const Subscriber = require('../models/subscriber');
 var path = require('path');
 
 /**
@@ -185,6 +186,18 @@ router.delete('/courses/:id', isLoggedIn, function(req, res) {
     }
   });
 })
+
+// EDIT COURSE ROUTE
+router.get('/subscribers', isLoggedIn, (req, res) =>  {
+  Subscriber.find({}).sort({'updated_at': -1}).exec(function(err, results) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.render("admin/subscribers/index", {subscribers: results});
+    }
+  });
+});
 
 /**
  * Auth Function

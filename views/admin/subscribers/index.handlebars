@@ -1,0 +1,46 @@
+<div class="ui container margin bottom top small">
+  <h1 class="ui horizontal header divider">
+		<i class="blue dashboard middle aligned icon"></i> Painel de Controle
+	</h1>
+</div>
+<div class="ui grid container">
+  <div class="three wide column">
+    <div class="ui secondary vertical pointing fluid menu">
+      <a href="/admin/courses" class="item">
+        Cursos
+      </a>
+      <a href="/admin/subscribers" class="active item">
+        Inscrições
+      </a>
+      <a href="/admin/courses" class="item">
+        Membros
+      </a>
+    </div>
+  </div>
+  <div class="thirteen wide column">
+    <table class="ui celled table">
+      <thead>
+        <tr>
+        <th>
+            <div class="ui blue ribbon label">Nome do Curso</div>
+         </th>
+          <th>Inscrito</th>
+          <th>Email</th>
+          <th>Quantidade reservada</th>
+          <th>Data de reserva</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each subscribers}}
+          <tr>
+            <td>{{course}}</td>
+            <td>{{name}}</td>
+             <td>{{email}}</td>
+            <td>{{quantity}}</td>
+            <td>{{moment date 'DD/MM/YYYY'}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

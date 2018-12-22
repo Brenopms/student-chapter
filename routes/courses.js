@@ -3,6 +3,7 @@ var router  = express.Router();
 var Course  = require('../models/course');
 var nodemailer = require('nodemailer');
 var hbs = require('nodemailer-express-handlebars');
+const Subscriber = require('../models/subscriber');
 
 /**
  * Nodemailer Configuration
@@ -73,29 +74,49 @@ router.post('/:id/reserve', function(req,res) {
     else {
       if (course) {
         var reserve = req.body.reserve;
-        transporter.sendMail({
-            from: 'ufmgstudentchapter@gmail.com',
-            to: reserve["email"],
-            subject: 'Interesse no Curso ' + course["name"],
-            template: 'new.reserve',
-            context: {
-                courseName: course["name"],
-                name  : reserve["name"],
-                price : reserve["quantity"] * course["price"],
-                formLink : course["formLink"]
-            }
-        }, function (err, info) {
-           if(err) {
-             console.log(err)
-             req.flash("error", "Erro ao enviar a reserva. Por favor, tente novamente.")
-             res.redirect("/courses/" + req.params.id);
-           }
-           else {
-             console.log(info);
-             req.flash("success", "Reserva enviada com sucesso! Por favor, verifique sua caixa de entrada!");
-             res.redirect("/");
-           }
+        let subscriber = {};
+        subscriber.course = course["name"];
+        subscriber.name = reserve["name"]
+        subscriber.quantity = Number(reserve["quantity"]);
+        subscriber.email = reserve["email"]
+
+        console.log(subscriber);
+        Subscriber.create(subscriber, (err, newSubscriber) => {
+          if (err){
+            console.log(err);
+            req.flash("error", "Erro ao se inscrever no curso. Por favor, tente novamente.")
+          }
+          else {
+            console.log(newSubscriber);
+            req.flash("success", "Inscrito com sucesso")
+          }
         });
+
+        res.redirect("/");
+
+        // transporter.sendMail({
+        //     from: 'ufmgstudentchapter@gmail.com',
+        //     to: reserve["email"],
+        //     subject: 'Interesse no Curso ' + course["name"],
+        //     template: 'new.reserve',
+        //     context: {
+        //         courseName: course["name"],
+        //         name  : reserve["name"],
+        //         price : reserve["quantity"] * course["price"],
+        //         formLink : course["formLink"]
+        //     }
+        // }, function (err, info) {
+        //    if(err) {
+        //      console.log(err)
+        //      req.flash("error", "Erro ao enviar a reserva. Por favor, tente novamente.")
+        //      res.redirect("/courses/" + req.params.id);
+        //    }
+        //    else {
+        //      console.log(info);
+        //      req.flash("success", "Reserva enviada com sucesso! Por favor, verifique sua caixa de entrada!");
+        //      res.redirect("/");
+        //    }
+        // });
       }
       else {
         req.flash("error", "Não foi possível encontrar o curso.");
